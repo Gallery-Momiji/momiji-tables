@@ -18,9 +18,9 @@ for line in fsql:
  if line[0:12] == "CREATE TABLE":
   ftxt.write("\n\n###**Tablename:** " + re.search(r"`.*`",line).group(0).replace('`', '*')+"\n")
  elif line[0:3] == "  `":
-  ftxt.write("* " + re.search(r"`.*`",line).group(0).replace('`', '*'))
+  ftxt.write("* " + re.search(r"`.*`",line).group(0).replace('`', '**'))
   if re.search(r"COMMENT",line) is not None:
-   ftxt.write(re.search(r"COMMENT '.*",line).group(0).replace('COMMENT', ' -'))
+   ftxt.write(re.search(r"COMMENT '.*",line).group(0).replace('COMMENT', ' -').replace("'", '*'))
   ftxt.write("\n")
 
 fsql.close()
