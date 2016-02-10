@@ -102,3 +102,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `banner` varchar(50) DEFAULT 'newbie',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+-- Dumping structure for table gallery.bidders
+DROP TABLE IF EXISTS `bidders`;
+CREATE TABLE IF NOT EXISTS `bidders` (
+  `name` varchar(50) NOT NULL COMMENT 'Name of Bidder',
+  `bidderno` int NOT NULL AUTO_INCREMENT COMMENT 'Unique Bidder No',
+  `phoneno` varchar(21) COMMENT 'Bidder Phone Number',
+  `eaddress` varchar(50) COMMENT 'Email Address',
+  `maddress` varchar(200) COMMENT 'Mailing address',
+  PRIMARY KEY (`bidderno`)
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
