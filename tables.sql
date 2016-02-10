@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `ArtistUrl` tinytext COMMENT 'Artist webpage or site',
   `ArtistAgentName` tinytext COMMENT 'Artist Agent Name',
   `ArtistAgentPhone` tinytext COMMENT 'Artist Agent Phone No',
-  `ArtistAPP` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'PS Accredited Press Photography',
+  `ArtistAPP` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'PS Accredited Press Photography  (YES/NO)',
   `ArtistPhone` tinytext COMMENT 'Artist Phone No',
   `ArtistAgentAddress` tinytext COMMENT 'Artist Agent Address',
   `ArtistAgentEmail` tinytext COMMENT 'Artist Agent Email',
@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `gsmerchandise` (
 -- Dumping structure for table gallery.log
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE IF NOT EXISTS `log` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique Log ID',
-  `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Associated username',
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique Log ID',
+  `user_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'Associated username',
   `action` mediumtext NOT NULL COMMENT 'Action logged',
   `timestamp` time NOT NULL COMMENT 'Timestamp of log',
   `date` date NOT NULL COMMENT 'Date of log',
@@ -54,11 +54,11 @@ CREATE TABLE IF NOT EXISTS `log` (
 -- Dumping structure for table gallery.merchandise
 DROP TABLE IF EXISTS `merchandise`;
 CREATE TABLE IF NOT EXISTS `merchandise` (
-  `ArtistID` int(10) unsigned NOT NULL COMMENT 'Unique Artist ID',
-  `MerchID` int(10) unsigned NOT NULL COMMENT 'Unique Merch ID',
+  `ArtistID` int(11) unsigned NOT NULL COMMENT 'Unique Artist ID',
+  `MerchID` int(11) unsigned NOT NULL COMMENT 'Unique Merch ID',
   `MerchTitle` tinytext NOT NULL COMMENT 'Merch Title/Name',
   `MerchMinBid` float unsigned NOT NULL COMMENT 'Merch minimum Bid',
-  `MerchAAMB` tinyint(1) unsigned NOT NULL COMMENT 'After Auction Minimum Bid',
+  `MerchAAMB` tinyint(1) unsigned NOT NULL COMMENT 'After Auction Minimum Bid (YES/NO)',
   `MerchQuickSale` float unsigned NOT NULL COMMENT 'Merch quicksale price',
   `MerchMedium` tinytext NOT NULL COMMENT 'Merch medium description',
   `MerchSold` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Merch sold (YES/NO)',
@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS `merchandise` (
 DROP TABLE IF EXISTS `options`;
 CREATE TABLE IF NOT EXISTS `options` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `option` varchar(50) NOT NULL,
-  `value` varchar(50) NOT NULL,
+  `option` tinytext NOT NULL,
+  `value` tinytext NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
@@ -94,22 +94,21 @@ CREATE TABLE IF NOT EXISTS `receipts` (
 -- Dumping structure for table gallery.users
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'ID number for each user',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID number for each user',
   `username` tinytext COMMENT 'username of user',
   `password` tinytext COMMENT 'md5sum of user password',
   `class` tinyint(4) DEFAULT NULL COMMENT 'Permission level of user',
   `name` tinytext COMMENT 'Name of user',
-  `banner` varchar(50) DEFAULT 'newbie' COMMENT 'Deprecated, tentative deletion',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- Dumping structure for table gallery.bidders
 DROP TABLE IF EXISTS `bidders`;
 CREATE TABLE IF NOT EXISTS `bidders` (
-  `name` varchar(50) NOT NULL COMMENT 'Name of Bidder',
-  `bidderno` int NOT NULL AUTO_INCREMENT COMMENT 'Unique Bidder No',
-  `phoneno` varchar(21) COMMENT 'Bidder Phone Number',
-  `eaddress` varchar(50) COMMENT 'Email Address',
-  `maddress` varchar(200) COMMENT 'Mailing address',
+  `name` tinytext NOT NULL COMMENT 'Name of Bidder',
+  `bidderno` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique Bidder No',
+  `phoneno` tinytext COMMENT 'Bidder Phone Number',
+  `eaddress` tinytext COMMENT 'Email Address',
+  `maddress` text COMMENT 'Mailing address',
   PRIMARY KEY (`bidderno`)
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
