@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `merchandise` (
   `MerchID` int(10) unsigned NOT NULL COMMENT 'Unique Merch ID',
   `MerchTitle` tinytext NOT NULL COMMENT 'Merch Title/Name',
   `MerchMinBid` float unsigned NOT NULL COMMENT 'Merch minimum Bid',
-  `MerchAAMB` tinyint(1) unsigned NOT NULL,
+  `MerchAAMB` tinyint(1) unsigned NOT NULL COMMENT 'After Auction Minimum Bid',
   `MerchQuickSale` float unsigned NOT NULL COMMENT 'Merch quicksale price',
   `MerchMedium` tinytext NOT NULL COMMENT 'Merch medium description',
   `MerchSold` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Merch sold (YES/NO)',
