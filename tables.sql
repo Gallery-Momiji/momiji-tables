@@ -86,8 +86,8 @@ CREATE TABLE IF NOT EXISTS `receipts` (
   `isAuctionSale` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Auction sale (YES/NO)',
   `isGalleryStoreSale` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Gallery store sale (YES/NO)',
   `isPrinted` tinyint(1) DEFAULT '0' COMMENT 'Printed (YES/NO)',
-  `itemArray` mediumtext,
-  `priceArray` mediumtext,
+  `itemArray` mediumtext COMMENT 'Items sold, separated by #',
+  `priceArray` mediumtext COMMENT 'Prices of items sold, separated by #',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=161 DEFAULT CHARSET=latin1;
 
