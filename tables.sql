@@ -1,9 +1,9 @@
--- Dumping database structure for gallery
+-- This is the gallery database
 DROP DATABASE IF EXISTS `gallery`;
-CREATE DATABASE IF NOT EXISTS `gallery` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE IF NOT EXISTS `gallery`;
 USE `gallery`;
 
--- Dumping structure for table gallery.artists
+-- This table is used to store artist information
 DROP TABLE IF EXISTS `artists`;
 CREATE TABLE IF NOT EXISTS `artists` (
   `ArtistID` int(11) NOT NULL COMMENT 'Unique Artist ID',
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `ArtistUrl` tinytext COMMENT 'Artist webpage or site',
   `ArtistAgentName` tinytext COMMENT 'Artist Agent Name',
   `ArtistAgentPhone` tinytext COMMENT 'Artist Agent Phone No',
-  `ArtistAPP` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'PS Accredited Press Photography  (YES/NO)',
+  `ArtistAPP` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'PS Accredited Press Photography (YES/NO)',
   `ArtistPhone` tinytext COMMENT 'Artist Phone No',
   `ArtistAgentAddress` tinytext COMMENT 'Artist Agent Address',
   `ArtistAgentEmail` tinytext COMMENT 'Artist Agent Email',
@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `ArtistCheckIn` tinyint(1) DEFAULT '0' COMMENT 'Artist is checked in (YES/NO)',
   `ArtistcheckOut` tinyint(1) DEFAULT '0' COMMENT 'Artist is checked out (YES/NO)',
   PRIMARY KEY (`ArtistID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Dumping structure for table gallery.gsmerchandise
+-- This table is used to store gallery store merchandise information
 DROP TABLE IF EXISTS `gsmerchandise`;
 CREATE TABLE IF NOT EXISTS `gsmerchandise` (
   `ArtistID` tinyint(3) unsigned NOT NULL COMMENT 'Unique Artist ID',
@@ -37,10 +37,11 @@ CREATE TABLE IF NOT EXISTS `gsmerchandise` (
   `PiecePrice` float NOT NULL COMMENT 'Piece Price',
   `PieceInitialStock` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Number to sell',
   `PieceStock` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Number left in stock',
-  `PieceSDC` tinyint(1) DEFAULT '1' COMMENT 'Sell display copy (YES/NO)'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `PieceSDC` tinyint(1) DEFAULT '1' COMMENT 'Sell display copy (YES/NO)',
+  KEY `GSMerchKey` (`ArtistID`,`PieceID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Dumping structure for table gallery.log
+-- This table is used to store POS log information
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE IF NOT EXISTS `log` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique Log ID',
@@ -49,9 +50,9 @@ CREATE TABLE IF NOT EXISTS `log` (
   `timestamp` time NOT NULL COMMENT 'Timestamp of log',
   `date` date NOT NULL COMMENT 'Date of log',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5235 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5235 DEFAULT CHARSET=utf8;
 
--- Dumping structure for table gallery.merchandise
+-- This table is used to store auction merchandise information
 DROP TABLE IF EXISTS `merchandise`;
 CREATE TABLE IF NOT EXISTS `merchandise` (
   `ArtistID` int(11) unsigned NOT NULL COMMENT 'Unique Artist ID',
@@ -63,19 +64,19 @@ CREATE TABLE IF NOT EXISTS `merchandise` (
   `MerchMedium` tinytext NOT NULL COMMENT 'Merch medium description',
   `MerchSold` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Merch sold (YES/NO)',
   `ReceiptID` int(11) DEFAULT NULL COMMENT 'Unique Receipt Id if sold',
-  KEY `Index 1` (`ArtistID`,`MerchID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  KEY `MerchKey` (`ArtistID`,`MerchID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Dumping structure for table gallery.options
+-- This table is used to store various information, such as panel prices and special dates
 DROP TABLE IF EXISTS `options`;
 CREATE TABLE IF NOT EXISTS `options` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `option` tinytext NOT NULL,
-  `value` tinytext NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique ID',
+  `option` tinytext NOT NULL COMMENT 'Option Name',
+  `value` tinytext NOT NULL COMMENT 'Option Value',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping structure for table gallery.receipts
+-- This table is used to store receipt information
 DROP TABLE IF EXISTS `receipts`;
 CREATE TABLE IF NOT EXISTS `receipts` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique Receipt Id',
@@ -89,9 +90,9 @@ CREATE TABLE IF NOT EXISTS `receipts` (
   `itemArray` mediumtext COMMENT 'Items sold, separated by #',
   `priceArray` mediumtext COMMENT 'Prices of items sold, separated by #',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=161 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=161 DEFAULT CHARSET=utf8;
 
--- Dumping structure for table gallery.users
+-- This table is used to store user information
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID number for each user',
@@ -100,9 +101,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `class` tinyint(4) DEFAULT NULL COMMENT 'Permission level of user',
   `name` tinytext COMMENT 'Name of user',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
--- Dumping structure for table gallery.bidders
+-- This table is used to store bidder information
 DROP TABLE IF EXISTS `bidders`;
 CREATE TABLE IF NOT EXISTS `bidders` (
   `name` tinytext NOT NULL COMMENT 'Name of Bidder',
@@ -111,4 +112,4 @@ CREATE TABLE IF NOT EXISTS `bidders` (
   `eaddress` tinytext COMMENT 'Email Address',
   `maddress` text COMMENT 'Mailing address',
   PRIMARY KEY (`bidderno`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
