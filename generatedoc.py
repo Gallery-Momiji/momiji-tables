@@ -19,7 +19,7 @@ ftxt.write("\n\n**REQ** means the value is required\n")
 for line in fsql:
  #Place a generic line comment
  if line[0:3] == "-- ":
-  ftxt.write("\n*" + line[3:-1] + "*")
+  ftxt.write("\n*" + line[3:-1] + "*\n\n")
  #Add H2 for a database creation
  elif line[0:15] == "CREATE DATABASE":
   ftxt.write("\n##**Database:** " + re.search(r"`.*`",line).group(0).replace('`', '*')+"\n")
@@ -28,7 +28,7 @@ for line in fsql:
   ftxt.write("\n###**Tablename:** " + re.search(r"`.*`",line).group(0).replace('`', '*')+"\n")
  #Find key/primary key of a table
  elif re.search(r"KEY.*\(`.*`\)",line) is not None:
-  ftxt.write("*The following cannot be duplicated:* " + re.search(r"\(`.*`\)",line).group(0).replace('`', '**').replace('(', '').replace(')', '') + "\n")
+  ftxt.write("\n*The following cannot be duplicated:* " + re.search(r"\(`.*`\)",line).group(0).replace('`', '**').replace('(', '').replace(')', '') + "\n")
  #Find column, assumed 2 space indent
  elif line[0:3] == "  `":
   ftxt.write("* " + re.search(r"`.*`",line).group(0).replace('`', '**'))
