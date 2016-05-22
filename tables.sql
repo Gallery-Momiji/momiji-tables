@@ -20,9 +20,9 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `ArtistShowName` tinytext COMMENT 'Artist Show/Nickname',
   `ArtistTables` float DEFAULT '0' COMMENT 'Artist Table Num',
   `ArtistPanels` float DEFAULT '0' COMMENT 'Artist Panel Num',
-  `ArtistDue` float DEFAULT '0',
-  `ArtistPaid` float DEFAULT '0',
-  `ArtistPaidFully` tinyint(1) DEFAULT '0',
+  `ArtistDue` float DEFAULT '0' COMMENT 'Money still owed by artist, such as fees, or negative for money owed to artist',
+  `ArtistPaid` float DEFAULT '0' COMMENT 'Total paid by artist prior to check in',
+  `ArtistPaidFully` tinyint(1) DEFAULT '0' COMMENT 'Artist paid fully for panels/tables, excluding fees (YES/NO)',
   `ArtistCheckIn` tinyint(1) DEFAULT '0' COMMENT 'Artist is checked in (YES/NO)',
   `ArtistcheckOut` tinyint(1) DEFAULT '0' COMMENT 'Artist is checked out (YES/NO)',
   PRIMARY KEY (`ArtistID`)
@@ -89,6 +89,8 @@ CREATE TABLE IF NOT EXISTS `receipts` (
   `isPrinted` tinyint(1) DEFAULT '0' COMMENT 'Printed (YES/NO)',
   `itemArray` mediumtext COMMENT 'Items sold, separated by #',
   `priceArray` mediumtext COMMENT 'Prices of items sold, separated by #',
+  `timestamp` time NOT NULL COMMENT 'Timestamp of receipt',
+  `date` date NOT NULL COMMENT 'Date of receipt',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=161 DEFAULT CHARSET=utf8;
 
@@ -108,8 +110,9 @@ CREATE TABLE IF NOT EXISTS `bidders` (
 -- This table is used to store bidder information
   `name` tinytext NOT NULL COMMENT 'Name of Bidder',
   `bidderno` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique Bidder No',
-  `phoneno` tinytext COMMENT 'Bidder Phone Number',
-  `eaddress` tinytext COMMENT 'Email Address',
-  `maddress` text COMMENT 'Mailing address',
+  `phoneno` tinytext NOT NULL COMMENT 'Bidder Phone Number',
+  `eaddress` tinytext NOT NULL COMMENT 'Email Address',
+  `maddress` text NOT NULL COMMENT 'Mailing address',
+  `due` float DEFAULT '0' COMMENT 'Money still owed by bidder',
   PRIMARY KEY (`bidderno`)
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
