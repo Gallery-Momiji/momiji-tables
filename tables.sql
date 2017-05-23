@@ -87,6 +87,7 @@ CREATE TABLE IF NOT EXISTS `receipts` (
   `isAuctionSale` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Auction sale (YES/NO)',
   `isGalleryStoreSale` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Gallery store sale (YES/NO)',
   `isPrinted` tinyint(1) DEFAULT '0' COMMENT 'Printed (YES/NO)',
+  `isCash` tinyint(1) DEFAULT '1' COMMENT 'Cash sale? (YES/NO)',
   `itemArray` mediumtext COMMENT 'Items sold, separated by #',
   `priceArray` mediumtext COMMENT 'Prices of items sold, separated by #',
   `timestamp` time NOT NULL COMMENT 'Timestamp of receipt',
