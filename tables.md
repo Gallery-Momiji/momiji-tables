@@ -7,12 +7,12 @@ Please note for *YES/NO* columns: *YES* is stored as a **1** and *NO* is stored 
 
 **REQ** means the value is required
 
-##**Database:** *gallery*
+## **Database:** *gallery*
 
 *This is the gallery database*
 
 
-###**Tablename:** *artists*
+### **Tablename:** *artists*
 
 *This table is used to store artist information*
 
@@ -38,7 +38,7 @@ Please note for *YES/NO* columns: *YES* is stored as a **1** and *NO* is stored 
 
 *The following cannot be duplicated:* **ArtistID**
 
-###**Tablename:** *gsmerchandise*
+### **Tablename:** *gsmerchandise*
 
 *This table is used to store gallery store merchandise information*
 
@@ -52,7 +52,7 @@ Please note for *YES/NO* columns: *YES* is stored as a **1** and *NO* is stored 
 
 *The following cannot be duplicated:* **ArtistID**,**PieceID**
 
-###**Tablename:** *log*
+### **Tablename:** *log*
 
 *This table is used to store POS log information*
 
@@ -64,7 +64,7 @@ Please note for *YES/NO* columns: *YES* is stored as a **1** and *NO* is stored 
 
 *The following cannot be duplicated:* **id**
 
-###**Tablename:** *merchandise*
+### **Tablename:** *merchandise*
 
 *This table is used to store auction merchandise information*
 
@@ -80,7 +80,7 @@ Please note for *YES/NO* columns: *YES* is stored as a **1** and *NO* is stored 
 
 *The following cannot be duplicated:* **ArtistID**,**MerchID**
 
-###**Tablename:** *options*
+### **Tablename:** *options*
 
 *This table is used to store various information, such as panel prices and special dates*
 
@@ -90,7 +90,7 @@ Please note for *YES/NO* columns: *YES* is stored as a **1** and *NO* is stored 
 
 *The following cannot be duplicated:* **id**
 
-###**Tablename:** *receipts*
+### **Tablename:** *receipts*
 
 *This table is used to store receipt information*
 
@@ -110,7 +110,7 @@ Please note for *YES/NO* columns: *YES* is stored as a **1** and *NO* is stored 
 
 *The following cannot be duplicated:* **id**
 
-###**Tablename:** *users*
+### **Tablename:** *users*
 
 *This table is used to store user information*
 
@@ -122,7 +122,7 @@ Please note for *YES/NO* columns: *YES* is stored as a **1** and *NO* is stored 
 
 *The following cannot be duplicated:* **id**
 
-###**Tablename:** *bidders*
+### **Tablename:** *bidders*
 
 *This table is used to store bidder information*
 
