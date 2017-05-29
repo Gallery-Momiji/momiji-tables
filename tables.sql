@@ -114,6 +114,5 @@ CREATE TABLE IF NOT EXISTS `bidders` (
   `phoneno` tinytext NOT NULL COMMENT 'Bidder Phone Number',
   `eaddress` tinytext NOT NULL COMMENT 'Email Address',
   `maddress` text NOT NULL COMMENT 'Mailing address',
-  `due` float DEFAULT '0' COMMENT 'Money still owed by bidder',
   PRIMARY KEY (`bidderno`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
