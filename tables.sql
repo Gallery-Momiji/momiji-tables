@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `ArtistUrl` tinytext COMMENT 'Artist webpage or site',
   `ArtistAgentName` tinytext COMMENT 'Artist Agent Name',
   `ArtistAgentPhone` tinytext COMMENT 'Artist Agent Phone No',
-  `ArtistAPP` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'PS Accredited Press Photography (YES/NO)',
+  `ArtistAPP` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'PS Accredited Press Photography (YES/NO)',
   `ArtistPhone` tinytext COMMENT 'Artist Phone No',
   `ArtistAgentAddress` tinytext COMMENT 'Artist Agent Address',
   `ArtistAgentEmail` tinytext COMMENT 'Artist Agent Email',
@@ -22,9 +22,9 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `ArtistPanels` float DEFAULT '0' COMMENT 'Artist Panel Num',
   `ArtistDue` float DEFAULT '0' COMMENT 'Money still owed by artist, such as fees, or negative for money owed to artist',
   `ArtistPaid` float DEFAULT '0' COMMENT 'Total paid by artist prior to check in',
-  `ArtistPaidFully` tinyint(1) DEFAULT '0' COMMENT 'Artist paid fully for panels/tables, excluding fees (YES/NO)',
-  `ArtistCheckIn` tinyint(1) DEFAULT '0' COMMENT 'Artist is checked in (YES/NO)',
-  `ArtistcheckOut` tinyint(1) DEFAULT '0' COMMENT 'Artist is checked out (YES/NO)',
+  `ArtistPaidFully` tinyint(1) unsigned DEFAULT '0' COMMENT 'Artist paid fully for panels/tables, excluding fees (YES/NO)',
+  `ArtistCheckIn` tinyint(1) unsigned DEFAULT '0' COMMENT 'Artist is checked in (YES/NO)',
+  `ArtistcheckOut` tinyint(1) unsigned DEFAULT '0' COMMENT 'Artist is checked out (YES/NO)',
   PRIMARY KEY (`ArtistID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `gsmerchandise` (
   `PiecePrice` float NOT NULL COMMENT 'Piece Price',
   `PieceInitialStock` smallint unsigned NOT NULL DEFAULT '0' COMMENT 'Number to sell',
   `PieceStock` smallint unsigned NOT NULL DEFAULT '0' COMMENT 'Number left in stock',
-  `PieceSDC` tinyint(1) DEFAULT '1' COMMENT 'Sell display copy (YES/NO)',
+  `PieceSDC` tinyint(1) unsigned DEFAULT '1' COMMENT 'Sell display copy (YES/NO)',
   KEY `GSMerchKey` (`ArtistID`,`PieceID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -83,11 +83,11 @@ CREATE TABLE IF NOT EXISTS `receipts` (
   `userID` smallint unsigned NOT NULL DEFAULT '0' COMMENT 'Associated username',
   `price` float NOT NULL DEFAULT '0' COMMENT 'Price sold for',
   `paid` float NOT NULL DEFAULT '0' COMMENT 'Amount paid',
-  `isQuickSale` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Quicksale (YES/NO)',
-  `isAuctionSale` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Auction sale (YES/NO)',
-  `isGalleryStoreSale` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Gallery store sale (YES/NO)',
-  `isPrinted` tinyint(1) DEFAULT '0' COMMENT 'Printed (YES/NO)',
-  `Last4digitsCard` smallint(4) DEFAULT '0' COMMENT 'Last 4 digits of Card? (0 for cash sale)',
+  `isQuickSale` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Quicksale (YES/NO)',
+  `isAuctionSale` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Auction sale (YES/NO)',
+  `isGalleryStoreSale` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Gallery store sale (YES/NO)',
+  `isPrinted` tinyint(1) unsigned DEFAULT '0' COMMENT 'Printed (YES/NO)',
+  `Last4digitsCard` smallint(4) unsigned DEFAULT '0' COMMENT 'Last 4 digits of Card? (0 for cash sale)',
   `itemArray` mediumtext COMMENT 'Items sold, separated by #',
   `priceArray` mediumtext COMMENT 'Prices of items sold, separated by #',
   `timestamp` time NOT NULL COMMENT 'Timestamp of receipt',
