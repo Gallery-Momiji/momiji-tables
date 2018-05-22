@@ -36,7 +36,6 @@ CREATE TABLE IF NOT EXISTS `gsmerchandise` (
   `PieceTitle` tinytext NOT NULL COMMENT 'Piece Title/Name',
   `PiecePrice` decimal(7,2) unsigned NOT NULL COMMENT 'Piece Price',
   `PieceInitialStock` smallint unsigned NOT NULL DEFAULT '0' COMMENT 'Number to sell',
-  `PieceStock` smallint unsigned NOT NULL DEFAULT '0' COMMENT 'Number left in stock',
   `PieceSDC` tinyint(1) unsigned DEFAULT '1' COMMENT 'Sell display copy (YES/NO)',
   KEY `GSMerchKey` (`ArtistID`,`PieceID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
