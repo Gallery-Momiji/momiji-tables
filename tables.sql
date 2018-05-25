@@ -23,6 +23,8 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `ArtistPaidFully` tinyint(1) unsigned DEFAULT '0' COMMENT 'Artist paid fully for panels/tables, excluding fees (YES/NO)',
   `ArtistDue` decimal(7,2) unsigned DEFAULT '0' COMMENT 'Money still owed by artist, such as fees, or negative for money owed to artist',
   `ArtistPaid` decimal(7,2) unsigned DEFAULT '0' COMMENT 'Total paid by artist prior to check in',
+  `ArtistASCommission` float DEFAULT '15' COMMENT 'Artist Auction Commission',
+  `ArtistGSCommission` float DEFAULT '15' COMMENT 'Artist Gallery Store Commission',
   `ArtistCheckIn` tinyint(1) unsigned DEFAULT '0' COMMENT 'Artist is checked in (YES/NO)',
   `ArtistcheckOut` tinyint(1) unsigned DEFAULT '0' COMMENT 'Artist is checked out (YES/NO)',
   PRIMARY KEY (`ArtistID`)
@@ -80,8 +82,8 @@ CREATE TABLE IF NOT EXISTS `receipts` (
 -- This table is used to store receipt information
   `id` smallint unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique Receipt Id',
   `userID` smallint unsigned NOT NULL DEFAULT '0' COMMENT 'Associated username',
-  `price` decimal(7,2) unsigned NOT NULL DEFAULT '0' COMMENT 'Price sold for',
-  `paid` decimal(7,2) unsigned NOT NULL DEFAULT '0' COMMENT 'Amount paid',
+  `price` decimal(7,2) NOT NULL DEFAULT '0' COMMENT 'Price sold for',
+  `paid` decimal(7,2) NOT NULL DEFAULT '0' COMMENT 'Amount paid',
   `isQuickSale` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Quicksale (YES/NO)',
   `isAuctionSale` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Auction sale (YES/NO)',
   `isGalleryStoreSale` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Gallery store sale (YES/NO)',
