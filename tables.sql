@@ -117,3 +117,14 @@ CREATE TABLE IF NOT EXISTS `bidders` (
   `maddress` text NOT NULL COMMENT 'Mailing address',
   PRIMARY KEY (`bidderno`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `bids`;
+CREATE TABLE IF NOT EXISTS `bids` (
+-- This table is used to store bidding information
+  `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique Bid ID',
+  `name` tinytext NOT NULL COMMENT 'Name of Bidder',
+  `bidderno` tinyint(3) unsigned NOT NULL COMMENT 'Unique Bidder No',
+  `ArtistID` tinyint(3) unsigned NOT NULL COMMENT 'Unique Artist ID',
+  `MerchID` tinyint(3) unsigned NOT NULL COMMENT 'Unique Piece ID',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
