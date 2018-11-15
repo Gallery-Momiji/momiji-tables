@@ -87,6 +87,7 @@ Please note for *YES/NO* columns: *YES* is stored as a **1** and *NO* is stored 
 
 * **id** - *Only one data set*, **REQ**
 * **AuctionEnd** (0 or 1) - *Auction has ended (YES/NO)*, **REQ**
+* **AuctionCutoff** (Integer Value) - *Number of bids before going to live auction*, **REQ**
 
 *The following cannot be duplicated:* **id**
 

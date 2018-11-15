@@ -73,6 +73,7 @@ CREATE TABLE IF NOT EXISTS `options` (
 -- This table is used to store various information, such as panel prices and special dates
   `id` ENUM('') NOT NULL COMMENT 'Only one data set',
   `AuctionEnd` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Auction has ended (YES/NO)',
+  `AuctionCutoff` tinyint unsigned NOT NULL DEFAULT '0' COMMENT 'Number of bids before going to live auction',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
