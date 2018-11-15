@@ -71,11 +71,11 @@ CREATE TABLE IF NOT EXISTS `merchandise` (
 DROP TABLE IF EXISTS `options`;
 CREATE TABLE IF NOT EXISTS `options` (
 -- This table is used to store various information, such as panel prices and special dates
-  `id` smallint unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique ID',
-  `option` tinytext NOT NULL COMMENT 'Option Name',
-  `value` tinytext NOT NULL COMMENT 'Option Value',
+  `id` ENUM('') NOT NULL COMMENT 'Only one data set',
+  `EnableQuickSale` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Enable QuickSale (YES/NO)',
+  `AuctionEnd` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Auction has ended (YES/NO)',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `receipts`;
 CREATE TABLE IF NOT EXISTS `receipts` (
