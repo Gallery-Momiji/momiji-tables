@@ -123,6 +123,7 @@ CREATE TABLE IF NOT EXISTS `bids` (
 -- This table is used to store bidding information
   `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique Bid ID',
   `name` tinytext NOT NULL COMMENT 'Name of Bidder',
+  `value` mediumint unsigned NOT NULL COMMENT 'Value of Bid',
   `bidderno` tinyint(3) unsigned NOT NULL COMMENT 'Unique Bidder No',
   `ArtistID` tinyint(3) unsigned NOT NULL COMMENT 'Unique Artist ID',
   `MerchID` tinyint(3) unsigned NOT NULL COMMENT 'Unique Piece ID',
