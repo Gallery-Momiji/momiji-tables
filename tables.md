@@ -86,7 +86,6 @@ Please note for *YES/NO* columns: *YES* is stored as a **1** and *NO* is stored 
 *This table is used to store various information, such as panel prices and special dates*
 
 * **id** - *Only one data set*, **REQ**
-* **EnableQuickSale** (0 or 1) - *Enable QuickSale (YES/NO)*, **REQ**
 * **AuctionEnd** (0 or 1) - *Auction has ended (YES/NO)*, **REQ**
 
 *The following cannot be duplicated:* **id**
