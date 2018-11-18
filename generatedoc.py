@@ -27,7 +27,7 @@ for line in fsql:
  elif line[0:12] == "CREATE TABLE":
   ftxt.write("\n### **Tablename:** " + re.search(r"`.*`",line).group(0).replace('`', '*')+"\n")
  #Find key/primary key of a table
- elif re.search(r"KEY.*\(`.*`\)",line) is not None:
+ elif re.search(r"PRIMARY KEY.*\(`.*`\)",line) is not None:
   ftxt.write("\n*The following cannot be duplicated:* " + re.search(r"\(`.*`\)",line).group(0).replace('`', '**').replace('(', '').replace(')', '') + "\n")
  #Find column, assumed 2 space indent
  elif line[0:3] == "  `":

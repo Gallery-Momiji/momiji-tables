@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `gsmerchandise` (
   `PiecePrice` decimal(7,2) unsigned NOT NULL COMMENT 'Piece Price',
   `PieceInitialStock` smallint unsigned NOT NULL DEFAULT '0' COMMENT 'Number to sell',
   `PieceSDC` tinyint(1) unsigned DEFAULT '1' COMMENT 'Sell display copy (YES/NO)',
-  KEY `GSMerchKey` (`ArtistID`,`PieceID`)
+  PRIMARY KEY `GSMerchKey` (`ArtistID`,`PieceID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `log`;
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `merchandise` (
   `MerchMedium` tinytext NOT NULL COMMENT 'Merch medium description',
   `MerchSold` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Merch sold (YES/NO)',
   `ReceiptID` smallint unsigned DEFAULT NULL COMMENT 'Unique Receipt Id if sold',
-  KEY `MerchKey` (`ArtistID`,`MerchID`)
+  PRIMARY KEY `MerchKey` (`ArtistID`,`MerchID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `options`;
@@ -121,11 +121,10 @@ CREATE TABLE IF NOT EXISTS `bidders` (
 DROP TABLE IF EXISTS `bids`;
 CREATE TABLE IF NOT EXISTS `bids` (
 -- This table is used to store bidding information
-  `bidno` smallint unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique Bid number',
   `name` tinytext NOT NULL COMMENT 'Name of Bidder',
   `value` mediumint unsigned NOT NULL COMMENT 'Value of Bid',
   `bidderno` tinyint(3) unsigned NOT NULL COMMENT 'Unique Bidder No',
   `ArtistID` tinyint(3) unsigned NOT NULL COMMENT 'Unique Artist ID',
   `MerchID` tinyint(3) unsigned NOT NULL COMMENT 'Unique Piece ID',
-  KEY `BidKey` (`value`,`ArtistID`,`MerchID`)
+  PRIMARY KEY `bidkey` (`value`,`ArtistID`,`MerchID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
