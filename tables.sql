@@ -111,7 +111,7 @@ DROP TABLE IF EXISTS `bidders`;
 CREATE TABLE IF NOT EXISTS `bidders` (
 -- This table is used to store bidder information
   `name` tinytext NOT NULL COMMENT 'Name of Bidder',
-  `bidderno` tinyint(3) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique Bidder No',
+  `bidderno` smallint(3) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique Bidder No',
   `phoneno` tinytext NOT NULL COMMENT 'Bidder Phone Number',
   `eaddress` tinytext NOT NULL COMMENT 'Email Address',
   `maddress` text NOT NULL COMMENT 'Mailing address',
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `bids` (
 -- This table is used to store bidding information
   `name` tinytext NOT NULL COMMENT 'Name of Bidder',
   `value` mediumint unsigned NOT NULL COMMENT 'Value of Bid',
-  `bidderno` tinyint(3) unsigned NOT NULL COMMENT 'Unique Bidder No',
+  `bidderno` smallint(3) unsigned NOT NULL COMMENT 'Unique Bidder No',
   `ArtistID` tinyint(3) unsigned NOT NULL COMMENT 'Unique Artist ID',
   `MerchID` tinyint(3) unsigned NOT NULL COMMENT 'Unique Piece ID',
   PRIMARY KEY `bidkey` (`value`,`ArtistID`,`MerchID`)
