@@ -106,6 +106,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` tinytext COMMENT 'Name of user',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+INSERT INTO `users` (`id`, `username`, `password`, `class`, `name`) VALUES (0, 'admin', '21232f29', 11, 'admin');
 
 DROP TABLE IF EXISTS `bidders`;
 CREATE TABLE IF NOT EXISTS `bidders` (
