@@ -72,10 +72,12 @@ DROP TABLE IF EXISTS `options`;
 CREATE TABLE IF NOT EXISTS `options` (
 -- This table is used to store various information, such as panel prices and special dates
   `id` ENUM('') NOT NULL COMMENT 'Only one data set',
+  `EnableDigitalBid` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT 'Digital Bidding is enabled (YES/NO)',
   `AuctionEnd` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Auction has ended (YES/NO)',
   `AuctionCutoff` tinyint unsigned NOT NULL DEFAULT '5' COMMENT 'Number of bids before going to live auction',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+INSERT INTO `options` (`id`) VALUES ('');
 
 DROP TABLE IF EXISTS `receipts`;
 CREATE TABLE IF NOT EXISTS `receipts` (
