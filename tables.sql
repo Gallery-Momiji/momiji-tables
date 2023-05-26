@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `ArtistTables` float DEFAULT '0' COMMENT 'Artist Table Num',
   `ArtistPanels` float DEFAULT '0' COMMENT 'Artist Panel Num',
   `ArtistPaidFully` tinyint(1) unsigned DEFAULT '0' COMMENT 'Artist paid fully for panels/tables, excluding fees (YES/NO)',
-  `ArtistDue` decimal(7,2) unsigned DEFAULT '0' COMMENT 'Money still owed by artist, such as fees, or negative for money owed to artist',
+  `ArtistDue` decimal(7,2) DEFAULT '0' COMMENT 'Money still owed by artist, such as fees, or negative for money owed to artist',
   `ArtistPaid` decimal(7,2) unsigned DEFAULT '0' COMMENT 'Total paid by artist prior to check in',
   `ArtistASCommission` float DEFAULT '15' COMMENT 'Artist Auction Commission',
   `ArtistGSCommission` float DEFAULT '15' COMMENT 'Artist Gallery Store Commission',
